@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Услуги перевозки людей</title>
+        <script src="pp.js"></script>
+        <link href="form_applications.css" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    </head>
+    <body>
+        <main>
+            <h1>Изменение таблиц</h1>
+            <form action="" onsubmit="sendMessage(event)">
+                <input type="text" id="messageText" autocomplete="off"/>
+                <button>Отправить</button>
+            </form>
+
+            <ul id='messages'>
+            </ul>
+
+<!--            Кнопки управления-->
+            <button id="addApplication" >Оставить заявку</button>
+            <button id="HiddenApplication" style="display: none;">Закрыть форму</button>
+
+            <button id="printAllApplication" >Показать все заявки</button>
+            <button id="hiddenAllApplication" style="display: none;">Закрыть</button>
+
+            <button id="fixApplication" >Исправить заявку</button>
+            <button id="hiddenFixApplication" style="display: none;">Закрыть</button>
+
+            <button id="deleteApplication" >Удалить заявку</button>
+            <button id="hiddenDeleteApplication" style="display: none;">Закрыть</button>
+<!--            -->
+
+
+            <form id="addAppli" style="display: none;">
+                <div class="container">
+                    <div class="container-fluid px-1 py-5 mx-auto">
+                        <div class="row d-flex justify-content-center">
+                            <div class="col-xl-7 col-lg-8 col-md-9 col-11 text-center">
+                                <div class="card">
+                                    <h5 class="text-center mb-4">Заявка на перевоз людей</h5>
+                                    <form class="form-card" onsubmit="sendMessage2(event)">
+                                        <div class="row justify-content-between text-left">
+                                            <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">ФИО<span class="text-danger"> *</span></label> <input type="text" id="fname" name="name" placeholder="" > </div>
+                                            <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Число людей для перевозки<span class="text-danger"> *</span></label> <input type="text" id="lname" name="numberOfPeople" placeholder="" > </div>
+                                        </div>
+                                        <div class="row justify-content-between text-left">
+                                            <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Откуда<span class="text-danger"> *</span></label> <input type="text" id="email" name="WhereFrom" placeholder="" > </div>
+                                            <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Куда<span class="text-danger"> *</span></label> <input type="text" id="mob" name="WhereTo" placeholder=""> </div>
+                                        </div>
+                                        <div class="row justify-content-between text-left">
+                                            <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Дата<span class="text-danger"> *</span></label> <input type="text" id="data" name="Data" placeholder="yy:MM:dd"> </div>
+                                            <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Время<span class="text-danger"> *</span></label> <input type="text" id="time" name="Time" placeholder="hh:mm:ss"> </div>
+                                        </div>
+                                        <div class="row justify-content-between text-left">
+                                            <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Телефон<span class="text-danger"> *</span></label> <input type="text" id="job" name="phoneNumber" placeholder="+7..."> </div>
+                                            <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Деньги<span class="text-danger"> *</span></label> <input type="text" id="money" name="Money" placeholder=""> </div>
+                                        </div>
+                                        <div class="row justify-content-end">
+                                            <div class="form-group col-sm-6"> <button type="submit" class="btn-block btn-primary">Отправить</button> </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+
+            <ul id="printAll" style="display: none;" >
+            </ul>
+
+
+            <form id="fixApp" style="display: none;">
+                <div class="container">
+                    <div class="container-fluid px-1 py-5 mx-auto">
+                        <div class="row d-flex justify-content-center">
+                            <div class="col-xl-7 col-lg-8 col-md-9 col-11 text-center">
+                                <div class="card">
+                                    <h5 class="text-center mb-4">Заявка на перевоз людей</h5>
+                                    <form class="form-card2" onsubmit="sendMessage3(event)">
+                                        <div class="row justify-content-between text-left">
+                                            <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Id заявки<span class="text-danger"> *</span></label> <input type="text" id="id" name="id" placeholder="" > </div>
+                                        </div>
+                                        <div class="row justify-content-between text-left">
+                                            <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">ФИО<span class="text-danger"> *</span></label> <input type="text" id="fname" name="name" placeholder="" > </div>
+                                            <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Число людей для перевозки<span class="text-danger"> *</span></label> <input type="text" id="lname" name="numberOfPeople" placeholder="" > </div>
+                                        </div>
+                                        <div class="row justify-content-between text-left">
+                                            <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Откуда<span class="text-danger"> *</span></label> <input type="text" id="email" name="WhereFrom" placeholder="" > </div>
+                                            <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Куда<span class="text-danger"> *</span></label> <input type="text" id="mob" name="WhereTo" placeholder=""> </div>
+                                        </div>
+                                        <div class="row justify-content-between text-left">
+                                            <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Дата<span class="text-danger"> *</span></label> <input type="text" id="data" name="Data" placeholder="yy:MM:dd"> </div>
+                                            <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Время<span class="text-danger"> *</span></label> <input type="text" id="time" name="Time" placeholder="hh:mm:ss"> </div>
+                                        </div>
+                                        <div class="row justify-content-between text-left">
+                                            <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Телефон<span class="text-danger"> *</span></label> <input type="text" id="job" name="phoneNumber" placeholder="+7..."> </div>
+                                            <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Деньги<span class="text-danger"> *</span></label> <input type="text" id="money" name="Money" placeholder=""> </div>
+                                        </div>
+                                        <div class="row justify-content-end">
+                                            <div class="form-group col-sm-6"> <button type="submit" class="btn-block btn-primary">Отправить</button> </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+
+            <form id="deleteApp" style="display: none;" onsubmit="sendMessage4(event)">
+                <input type="text" id="delete" autocomplete="off" placeholder="id заявки" name="id"/>
+                <button>Отправить</button>
+            </form>
+
+
+
+
+
+            </main>
+
+            <style>
+                .form-group button {
+                    margin-top: 10px;
+                }
+            </style>
+
+            <style>
+                body{color: #000;overflow-x: hidden;height: 100%;background-repeat: no-repeat;background-size: 100% 100%}.card{padding: 30px 40px;margin-top: 60px;margin-bottom: 60px;border: none !important;box-shadow: 0 6px 12px 0 rgba(0,0,0,0.2)}.blue-text{color: #00BCD4}.form-control-label{margin-bottom: 0}input, textarea, button{padding: 8px 15px;border-radius: 5px !important;margin: 5px 0px;box-sizing: border-box;border: 1px solid #ccc;font-size: 18px !important;font-weight: 300}input:focus, textarea:focus{-moz-box-shadow: none !important;-webkit-box-shadow: none !important;box-shadow: none !important;border: 1px solid #00BCD4;outline-width: 0;font-weight: 400}.btn-block{text-transform: uppercase;font-size: 15px !important;font-weight: 400;height: 43px;cursor: pointer}.btn-block:hover{color: #fff !important}button:focus{-moz-box-shadow: none !important;-webkit-box-shadow: none !important;box-shadow: none !important;outline-width: 0}
+            </style>
+
+<!--            Добавление заявки-->
+            <script>
+                document.getElementById('addApplication').addEventListener('click', function() {
+                    var form = document.getElementById('addAppli');
+                    form.style.display = 'block';
+
+                    document.getElementById('addApplication').style.display = 'none';
+                    document.getElementById('HiddenApplication').style.display = 'inline';
+                });
+
+                document.getElementById('HiddenApplication').addEventListener('click', function() {
+                    var form = document.getElementById('addAppli');
+                    form.style.display = 'none';
+
+                    document.getElementById('HiddenApplication').style.display = 'none';
+                    document.getElementById('addApplication').style.display = 'inline';
+                });
+
+
+                var ws2 = new WebSocket("{{ws_protocol}}://{{server_urn}}/ws2");
+                ws2.onmessage = function(event) {
+                    var messages = document.getElementById('messages')
+                    var message = document.createElement('li')
+                    var content = document.createTextNode(event.data)
+                    message.appendChild(content)
+                    messages.appendChild(message)
+                };
+                function sendMessage(event) {
+                    var input = document.getElementById("messageText")
+                    ws2.send(input.value)
+                    input.value = ''
+                    event.preventDefault()
+                }
+
+
+                document.getElementById('addAppli').addEventListener('submit', function(event) {
+                event.preventDefault();
+
+                var courseData = {
+                    name: event.target.name.value,
+                    numberOfPeople: event.target.numberOfPeople.value,
+                    whereFrom: event.target.WhereFrom.value,
+                    whereTo: event.target.WhereTo.value,
+                    data: event.target.Data.value,
+                    time: event.target.Time.value,
+                    phoneNumber: event.target.phoneNumber.value,
+                    money: event.target.Money.value,
+                };
+
+                fetch('/new_application', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(courseData)
+                })
+                .then(response => {
+                    if (response.status === 200) {
+                        ws2.send(JSON.stringify(courseData))
+                        return response.json();
+                    } else {
+                        throw new Error('Ошибка сервера: ' + response.status);
+                    }
+                })
+                .catch(error => console.error('Ошибка при отправке данных:', error));
+                event.target.reset();
+            });
+            </script>
+<!--        -->
+
+
+
+
+<!--            Показать список всех заявок-->
+            <script>
+                document.getElementById('printAllApplication').addEventListener('click', function() {
+                    var form = document.getElementById('printAll');
+                    form.style.display = 'block';
+
+                    document.getElementById('printAllApplication').style.display = 'none';
+                    document.getElementById('hiddenAllApplication').style.display = 'inline';
+                });
+
+                document.getElementById('hiddenAllApplication').addEventListener('click', function() {
+                    var form = document.getElementById('printAll');
+                    form.style.display = 'none';
+
+                    document.getElementById('hiddenAllApplication').style.display = 'none';
+                    document.getElementById('printAllApplication').style.display = 'inline';
+                });
+
+                var ws3 = new WebSocket("{{ws_protocol}}://{{server_urn}}/ws3");
+                ws3.onmessage = function(event) {
+                    var messages = document.getElementById('printAll')
+                    var message = document.createElement('li')
+                    var content = document.createTextNode(event.data)
+                    message.appendChild(content)
+                    messages.appendChild(message)
+                };
+                function sendMessage2(event) {
+                    var input = document.getElementById("form-card")
+                    ws3.send(input.value)
+                    input.value = ''
+                    event.preventDefault()
+                }
+
+                document.getElementById('printAllApplication').addEventListener('click', function(event) {
+                    event.preventDefault();
+
+                    listAll = document.getElementById("printAll")
+                    document.getElementById("printAll").innerHTML = "";
+
+                    fetch('/applications', {
+                        method: 'GET',
+                    })
+                    .then(response => {
+                        if (response.status === 200) {
+                            return response.json();
+                        } else {
+                            throw new Error('Ошибка сервера: ' + response.status);
+                        }
+                    }).then(data => {
+                        ws3.send(JSON.stringify(data))
+                        })
+                    .catch(error => console.error('Ошибка при отправке данных:', error));
+                    })
+            </script>
+
+
+<!--        Удалить заявку-->
+        <script>
+            document.getElementById('deleteApplication').addEventListener('click', function() {
+                    var form = document.getElementById('deleteApp');
+                    form.style.display = 'block';
+
+                    document.getElementById('deleteApplication').style.display = 'none';
+                    document.getElementById('hiddenDeleteApplication').style.display = 'inline';
+                });
+
+            document.getElementById('hiddenDeleteApplication').addEventListener('click', function() {
+                    var form = document.getElementById('deleteApp');
+                    form.style.display = 'none';
+
+                    document.getElementById('hiddenDeleteApplication').style.display = 'none';
+                    document.getElementById('deleteApplication').style.display = 'inline';
+                });
+
+            var ws5 = new WebSocket("{{ws_protocol}}://{{server_urn}}/ws5");
+                ws5.onmessage = function(event) {
+                    var messages = document.getElementById('messages')
+                    var message = document.createElement('li')
+                    var content = document.createTextNode(event.data)
+                    message.appendChild(content)
+                    messages.appendChild(message)
+                };
+                function sendMessage4(event) {
+                    var input = document.getElementById("messageText")
+                    ws5.send(input.value)
+                    input.value = ''
+                    event.preventDefault()
+                }
+
+                document.getElementById('deleteApplication').addEventListener('click', function(event) {
+                event.preventDefault();
+
+                var courseData = event.target.id.value
+
+                console.log(courseData)
+                fetch('/applications', {
+                    method: 'DELETE',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(courseData)
+                })
+                .then(response => {
+                    if (response.status === 200) {
+                        ws5.send(JSON.stringify(courseData))
+                    } else {
+                        throw new Error('Ошибка сервера: ' + response.status);
+                    }
+                })
+                .catch(error => console.error('Ошибка при отправке данных:', error.message));
+                event.target.reset();
+            });
+
+
+        </script>
+<!--        -->
+
+
+        <!--        Исправить заявку-->
+        <script>
+            document.getElementById('fixApplication').addEventListener('click', function() {
+                    var form = document.getElementById('fixApp');
+                    form.style.display = 'block';
+
+                    document.getElementById('fixApplication').style.display = 'none';
+                    document.getElementById('hiddenFixApplication').style.display = 'inline';
+                });
+
+            document.getElementById('hiddenFixApplication').addEventListener('click', function() {
+                    var form = document.getElementById('fixApp');
+                    form.style.display = 'none';
+
+                    document.getElementById('hiddenFixApplication').style.display = 'none';
+                    document.getElementById('fixApplication').style.display = 'inline';
+                });
+
+
+            var ws4 = new WebSocket("{{ws_protocol}}://{{server_urn}}/ws4");
+                ws4.onmessage = function(event) {
+                    var messages = document.getElementById('messages')
+                    var message = document.createElement('li')
+                    var content = document.createTextNode(event.data)
+                    message.appendChild(content)
+                    messages.appendChild(message)
+                };
+                function sendMessage3(event) {
+                    var input = document.getElementById("messageText")
+                    ws4.send(input.value)
+                    input.value = ''
+                    event.preventDefault()
+                }
+
+
+                document.getElementById('fixApp').addEventListener('submit', function(event) {
+                event.preventDefault();
+
+                var courseData = {
+                    id: event.target.id.value,
+                    name: event.target.name.value,
+                    numberOfPeople: event.target.numberOfPeople.value,
+                    whereFrom: event.target.WhereFrom.value,
+                    whereTo: event.target.WhereTo.value,
+                    data: event.target.Data.value,
+                    time: event.target.Time.value,
+                    phoneNumber: event.target.phoneNumber.value,
+                    money: event.target.Money.value,
+                };
+
+                fetch('/applications', {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(courseData)
+                })
+                .then(response => {
+                    if (response.status === 200) {
+                        ws4.send(JSON.stringify(courseData))
+                    } else {
+                        throw new Error('Ошибка сервера: ' + response.status);
+                    }
+                })
+                .catch(error => console.error('Ошибка при отправке данных:', error.message));
+                event.target.reset();
+            });
+        </script>
+<!--        -->
+
+
+
+
+
+
+
+
+
+<!--            Отобразить сообщение в чате-->
+            <script>
+                var ws = new WebSocket("{{ws_protocol}}://{{server_urn}}/ws");
+                ws.onmessage = function(event) {
+                    var messages = document.getElementById('messages')
+                    var message = document.createElement('li')
+                    var content = document.createTextNode(event.data)
+                    message.appendChild(content)
+                    messages.appendChild(message)
+                };
+                function sendMessage(event) {
+                    var input = document.getElementById("messageText")
+                    ws.send(input.value)
+                    input.value = ''
+                    event.preventDefault()
+                }
+        //
+        </script>
+    </body>
+</html>
