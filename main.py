@@ -91,7 +91,6 @@ app.include_router(
 )
 
 app.mount("/templates/", StaticFiles(directory="templates"), name="templates")
-if __name__ == '__main__':
-    uvicorn.run('main:app', host='localhost', port=8000, reload=True)
+
 
 
